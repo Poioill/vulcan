@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <title>LOGO</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="header__body">
+                <div class="logo">
+                    <img src="/image/img/Logo.png" alt="">
+                </div>
+                <div class="manage-sound">
+                    <button id="soundButton" class="btn-sound">
+                        <img src="/image/svg/menuSound.svg" alt="">
+                    </button>
+                    <button id="musicButton" class="btn-music">
+                        <img src="/image/svg/menuMusic.svg" alt="">
+                    </button>
+                </div>
+            </div>
+        </header>
+        <main class="main">
+            <div class="main__info-panel">
+                <div class="tabs">
+                    <div class="slider"></div>
+                    <button class="tab-btn active" onclick="showPage(0, this)">Все ставки</button>
+                    <button class="tab-btn" onclick="showPage(1, this)">Мои ставки</button>
+                    <button class="tab-btn" onclick="showPage(2, this)">Топ</button>
+                </div>
+                <div class="pages">
+                    <div class="page active" id="page1">
+                        <div class="first-page__wrapper">
+                            <div class="bet-info">
+                                <p>Всего ставок:</p>
+                                <p>234</p>
+                            </div>
+                            <!-- <div id="extraText" class="bet-info__extra">
+                                <div class="item__x">
+                                    <p>20.45 x</p>
+                                </div>
+                            </div>                           -->
+                            <div class="bet-info__prev">
+                                <button id="allBetToggleBtn">
+                                    <div>
+                                        <img src="/image/svg/sortTime.svg" alt=""  id="allBetImg">
+                                    </div>
+                                    <div>
+                                        <p>Пред. раунд</p>    
+                                    </div>
+                                </button>
+                            </div>   
+                        </div>
+                        <div class="allbet__list">
+                            <div class="list__table-head list-grid">
+                                <p>Игрок</p>
+                                <p>Ставка</p>
+                                <p>Х</p>
+                                <p class="table-head__get">Вывести</p>
+                            </div>
+                            <div class="list__items__box" id="bet-infoCurrent">
+                                <div class="list__item list-grid">
+                                    <div class="item__nickname">
+                                        <img src="/image/img/player.png" alt="">
+                                        <p>Игрко1ascasc</p>
+                                    </div>
+                                    <div class="item__bet">
+                                        <p>345600 р</p>
+                                    </div>
+                                    <div class="bet-history__item">
+                                        <p>347.6x</p>
+                                    </div>
+                                    <div class="item__get">
+                                        <p>3120 Р</p>
+                                    </div>
+                                </div>
+                                <div class="list__item list-grid">
+                                    <div class="item__nickname">
+                                        <img src="/image/img/player.png" alt="">
+                                        <p>Игрко1ascasc</p>
+                                    </div>
+                                    <div class="item__bet">
+                                        <p>345600 р</p>
+                                    </div>
+                                    <div class="bet-history__item">
+                                        <p>347.6x</p>
+                                    </div>
+                                    <div class="item__get">
+                                        <p>3120 Р</p>
+                                    </div>
+                                </div>
+                                <div class="list__item list-grid">
+                                    <div class="item__nickname">
+                                        <img src="/image/img/player.png" alt="">
+                                        <p>Игрко1ascasc</p>
+                                    </div>
+                                    <div class="item__bet">
+                                        <p>345600 р</p>
+                                    </div>
+                                    <div class="bet-history__item">
+                                        <p>347.6x</p>
+                                    </div>
+                                    <div class="item__get">
+                                        <p>3120 Р</p>
+                                    </div>
+                                </div>
+                                <div class="list__item list-grid">
+                                    <div class="item__nickname">
+                                        <img src="/image/img/player.png" alt="">
+                                        <p>Игрко1ascasc</p>
+                                    </div>
+                                    <div class="item__bet">
+                                        <p>345600 р</p>
+                                    </div>
+                                    <div class="bet-history__item">
+                                        <p>347.6x</p>
+                                    </div>
+                                    <div class="item__get">
+                                        <p>3120 Р</p>
+                                    </div>
+                                </div>
+                                <div class="list__item list-grid">
+                                    <div class="item__nickname">
+                                        <img src="/image/img/player.png" alt="">
+                                        <p>Игрко1ascasc</p>
+                                    </div>
+                                    <div class="item__bet">
+                                        <p>345600 р</p>
+                                    </div>
+                                    <div class="bet-history__item">
+                                        <p>347.6x</p>
+                                    </div>
+                                    <div class="item__get">
+                                        <p>3120 Р</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list__items__box" id="bet-infoPrev" style="display: none;">
+                                <div class="list__items__box" id="bet-infoCurrent">
+                                    <div class="list__item list-grid list-item__prev">
+                                        <div class="item__nickname">
+                                            <img src="/image/img/player.png" alt="">
+                                            <p>Игрко1ascasc</p>
+                                        </div>
+                                        <div class="item__bet">
+                                            <p>345600 р</p>
+                                        </div>
+                                        <div class="bet-history__item">
+                                            <p>347.6x</p>
+                                        </div>
+                                        <div class="item__get">
+                                            <p>3120 Р</p>
+                                        </div>
+                                    </div>
+                                    <div class="list__item list-grid list-item__prev">
+                                        <div class="item__nickname">
+                                            <img src="/image/img/player.png" alt="">
+                                            <p>Игрко1ascasc</p>
+                                        </div>
+                                        <div class="item__bet">
+                                            <p>345600 р</p>
+                                        </div>
+                                        <div class="bet-history__item">
+                                            <p>347.6x</p>
+                                        </div>
+                                        <div class="item__get">
+                                            <p>3120 Р</p>
+                                        </div>
+                                    </div>
+                                    <div class="list__item list-grid list-item__prev">
+                                        <div class="item__nickname">
+                                            <img src="/image/img/player.png" alt="">
+                                            <p>Игрко1ascasc</p>
+                                        </div>
+                                        <div class="item__bet">
+                                            <p>345600 р</p>
+                                        </div>
+                                        <div class="bet-history__item">
+                                            <p>347.6x</p>
+                                        </div>
+                                        <div class="item__get">
+                                            <p>3120 Р</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page" id="page2">
+                        <div class="allbet__list">
+                            <div class="list__table-head list-grid">
+                                <p>Время</p>
+                                <p>Ставка</p>
+                                <p>Х</p>
+                                <p class="table-head__get">Вывести</p>
+                            </div>
+                            <div class="list__items__box" id="bet-infoCurrent">
+                                <div class="list__item list-grid">
+                                    <div class="item__date">
+                                        <p>08:23</p>
+                                        <p>12-10-2024</p>
+                                    </div>
+                                    <div class="item__bet">
+                                        <p>345600 р</p>
+                                    </div>
+                                    <div class="bet-history__item">
+                                        <p>347.6x</p>
+                                    </div>
+                                    <div class="item__get">
+                                        <p>3120 Р</p>
+                                    </div>
+                                </div>
+                                <div class="list__item list-grid">
+                                    <div class="item__date">
+                                        <p>08:23</p>
+                                        <p>12-10-2024</p>
+                                    </div>
+                                    <div class="item__bet">
+                                        <p>345600 р</p>
+                                    </div>
+                                    <div class="bet-history__item">
+                                        <p>347.6x</p>
+                                    </div>
+                                    <div class="item__get">
+                                        <p>3120 Р</p>
+                                    </div>
+                                </div>
+                                <div class="list__item list-grid">
+                                    <div class="item__date">
+                                        <p>08:23</p>
+                                        <p>12-10-2024</p>
+                                    </div>
+                                    <div class="item__bet">
+                                        <p>345600 р</p>
+                                    </div>
+                                    <div class="bet-history__item">
+                                        <p>347.6x</p>
+                                    </div>
+                                    <div class="item__get">
+                                        <p>3120 Р</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list__items__box" id="bet-infoPrev" style="display: none;">
+                                <div class="list__items__box" id="bet-infoCurrent">
+                                    <div class="list__item list-grid list-item__prev">
+                                        <div class="item__nickname">
+                                            <img src="/image/img/player.png" alt="">
+                                            <p>Игрко1ascasc</p>
+                                        </div>
+                                        <div class="item__bet">
+                                            <p>345600 р</p>
+                                        </div>
+                                        <div class="bet-history__item">
+                                            <p>347.6x</p>
+                                        </div>
+                                        <div class="item__get">
+                                            <p>3120 Р</p>
+                                        </div>
+                                    </div>
+                                    <div class="list__item list-grid list-item__prev">
+                                        <div class="item__nickname">
+                                            <img src="/image/img/player.png" alt="">
+                                            <p>Игрко1ascasc</p>
+                                        </div>
+                                        <div class="item__bet">
+                                            <p>345600 р</p>
+                                        </div>
+                                        <div class="bet-history__item">
+                                            <p>347.6x</p>
+                                        </div>
+                                        <div class="item__get">
+                                            <p>3120 Р</p>
+                                        </div>
+                                    </div>
+                                    <div class="list__item list-grid list-item__prev">
+                                        <div class="item__nickname">
+                                            <img src="/image/img/player.png" alt="">
+                                            <p>Игрко1ascasc</p>
+                                        </div>
+                                        <div class="item__bet">
+                                            <p>345600 р</p>
+                                        </div>
+                                        <div class="bet-history__item">
+                                            <p>347.6x</p>
+                                        </div>
+                                        <div class="item__get">
+                                            <p>3120 Р</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page" id="page3">33333</div>
+                </div>
+            </div>
+
+
+            <div class="main__game-panel">
+                <div class="game-picture__body">
+                    <div class="bet-history"> 
+                        <div class="bet-history__list bet-history__list__mask">
+                            <div class="bet-history__item">
+                                <p>3.45x</p>
+                            </div>
+                            <div class="bet-history__item">
+                                <p>20.45x</p>
+                            </div>
+                            <div class="bet-history__item">
+                                <p>7.45x</p>
+                            </div>
+                            <div class="bet-history__item">
+                                <p>3.45x</p>
+                            </div>
+                            <div class="bet-history__item">
+                                <p>20.45x</p>
+                            </div>
+                            <div class="bet-history__item">
+                                <p>3.45x</p>
+                            </div>
+                            <div class="bet-history__item">
+                                <p>20.45x</p>
+                            </div>
+                            <div class="bet-history__item">
+                                <p>7.45x</p>
+                            </div>
+                            <div class="bet-history__item">
+                                <p>3.45x</p>
+                            </div>
+                            <div class="bet-history__item">
+                                <p>20.45x</p>
+                            </div>
+                            <div class="bet-history__item">
+                                <p>3.45x</p>
+                            </div>
+                            <div class="bet-history__item">
+                                <p>20.45x</p>
+                            </div>
+                            <div class="bet-history__item">
+                                <p>7.45x</p>
+                            </div>
+                            <div class="bet-history__item">
+                                <p>3.45x</p>
+                            </div>
+                            <div class="bet-history__item">
+                                <p>20.45x</p>
+                            </div>    
+                        </div>
+                        <div class="bet-history__btn__box">
+                            <button id="showAllHistory" class="bet-history__btn">
+                                <img src="/image/svg/timeSvg.svg" alt="">
+                                <img class="arrowHistory" src="/image/svg/arrowTime.svg" alt="">
+                            </button>
+                        </div>
+                        <div id="history__show-all" style="display: none;">
+                            <div class="bet-history__title">
+                                <p>История раундов</p>
+                            </div>
+                            <div class="bet-history__list">
+                                <div class="bet-history__item">
+                                    <p>3.45x</p>
+                                </div>
+                                <div class="bet-history__item">
+                                    <p>20.45x</p>
+                                </div>
+                                <div class="bet-history__item">
+                                    <p>7.45x</p>
+                                </div>
+                                <div class="bet-history__item">
+                                    <p>3.45x</p>
+                                </div>
+                                <div class="bet-history__item">
+                                    <p>20.45x</p>
+                                </div>
+                                <div class="bet-history__item">
+                                    <p>3.45x</p>
+                                </div>
+                                <div class="bet-history__item">
+                                    <p>20.45x</p>
+                                </div>
+                                <div class="bet-history__item">
+                                    <p>7.45x</p>
+                                </div>
+                                <div class="bet-history__item">
+                                    <p>3.45x</p>
+                                </div>
+                                <div class="bet-history__item">
+                                    <p>20.45x</p>
+                                </div>
+                                <div class="bet-history__item">
+                                    <p>3.45x</p>
+                                </div>
+                                <div class="bet-history__item">
+                                    <p>20.45x</p>
+                                </div>
+                                <div class="bet-history__item">
+                                    <p>7.45x</p>
+                                </div>
+                                <div class="bet-history__item">
+                                    <p>3.45x</p>
+                                </div>
+                                <div class="bet-history__item">
+                                    <p>20.45x</p>
+                                </div>    
+                                <div class="bet-history__item">
+                                    <p>20.45x</p>
+                                </div>
+                                <div class="bet-history__item">
+                                    <p>7.45x</p>
+                                </div>
+                                <div class="bet-history__item">
+                                    <p>3.45x</p>
+                                </div>
+                                <div class="bet-history__item">
+                                    <p>20.45x</p>
+                                </div>    
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="picture">
+                        <img src="/image/img/background.png" alt="">
+                    </div>
+                </div>
+                <div class="game-control__body">
+                    <div class="control" id="rulerBox1">
+                        <div class="control__btn-bet__body">
+                            <div class="btn-bet__box">
+                                <div>
+                                    <button id="autoBetButton" onclick="autoBetButton()">
+                                        <img src="/image/svg/manageButton.svg" alt="">
+                                    </button>
+                                    <span>Автоставка</span>
+                                </div>
+                                <div>
+                                    <button id="autoDrawButton" onclick="autoDrawButton()">
+                                        <img src="/image/svg/manageButton.svg" alt="">
+                                    </button>
+                                    <span>Автовывод</span>
+                                </div>
+                            </div>
+                            <div class="btn-bet__box">
+                                <div class="btn-bet__display">
+                                    <p>x 2.00</p>
+                                </div>
+                                <button id="manageBetAdd" onclick="toggleBlock()">
+                                    <img src="/image/svg/plus.svg" alt="">
+                                </button>    
+                            </div>
+                        </div>
+                        <div class="control__bet__body">
+                            <div class="bet__add-box">
+                                <div class="add-one">
+                                    <button onclick="betIncrease(-10)">-10</button>
+                                    <span id="betAmount">100</span>
+                                    <button onclick="betIncrease(+10)">+10</button>
+                                </div>
+                                <div class="add-more">
+                                    <button onclick="betIncrease(+100)">+100</button>
+                                    <button onclick="betIncrease(+200)">+200</button>    
+                                    <button onclick="betIncrease(+300)">+300</button>
+                                    <button onclick="betIncrease(+500)">+500</button>   
+                                </div>
+                            </div>
+                            <div onclick="placeBet(getBetValue(this))" class="bet__click-box" style="background: linear-gradient(99deg, #F26F37 0%, #EF4747 48.25%, #CB2A49 94.23%);">
+                                <button>
+                                    <div class="click-box" style="display: block;">
+                                        <span>ставка</span>
+                                        <p>100</p>
+                                    </div>
+                                    <div class="click-box" style="display: none;">
+                                        <span>отмена</span>
+                                    </div>
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control" id="rulerBox2" style="display: none;">
+                        <div class="control__btn-bet__body">
+                            <div class="btn-bet__box">
+                                <div>
+                                    <button id="autoBetButton" onclick="autoBetButton()">
+                                        <img src="/image/svg/manageButton.svg" alt="">
+                                    </button>
+                                    <span>Автоставка</span>
+                                </div>
+                                <div>
+                                    <button id="autoDrawButton" onclick="autoDrawButton()">
+                                        <img src="/image/svg/manageButton.svg" alt="">
+                                    </button>
+                                    <span>Автовывод</span>
+                                </div>
+                            </div>
+                            <div class="btn-bet__box">
+                                <div class="btn-bet__display">
+                                    <p>x 2.00</p>
+                                </div>
+                                <button id="manageBetRemove" onclick="toggleBlock()">
+                                    <img src="/image/svg/minus.svg" alt="">
+                                </button>    
+                            </div>
+                        </div>
+                        <div class="control__bet__body">
+                            <div class="bet__add-box">
+                                <div class="add-one">
+                                    <button onclick="betIncrease(-10)">-10</button>
+                                    <span id="betAmount">100</span>
+                                    <button onclick="betIncrease(+10)">+10</button>
+                                </div>
+                                <div class="add-more">
+                                    <button onclick="betIncrease(+100)">+100</button>
+                                    <button onclick="betIncrease(+200)">+200</button>    
+                                    <button onclick="betIncrease(+300)">+300</button>
+                                    <button onclick="betIncrease(+500)">+500</button>   
+                                </div>
+                            </div>
+                            <div class="bet__click-box">
+                                <button>
+                                    <span>ставка</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="/js/script.js"></script>
+</body>
+</html>
