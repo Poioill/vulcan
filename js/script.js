@@ -1,3 +1,5 @@
+import historyBet from './data.js'
+
 // Переключение страниц левой панели 
 
 function showPage(pageIndex, button) {
@@ -18,8 +20,7 @@ function showPage(pageIndex, button) {
     });
 
     button.classList.add('active');
-
-    console.log(slider, "jujbjhbjhb")
+    
     // Позиционирование слайдера под активной кнопкой
     const buttonRect = button.getBoundingClientRect();
     const tabsRect = document.querySelector('.tabs').getBoundingClientRect();
@@ -178,3 +179,51 @@ function placeBet(value) {
         betClickStyle[0].style.background = "linear-gradient(99deg, #F26F37 0%, #EF4747 48.25%, #CB2A49 94.23%)";  
     }
 }
+
+// Получение массива данных о ставках из data.js, отображение в истории ставок
+
+function generateBetHistory() {
+    const betHistoryList = document.getElementsByClassName('bet-history__list');
+
+    Array.from(betHistoryList).forEach(betHistoryList => {
+        historyBet.forEach(bet => {
+            const betItem = document.createElement('div');
+            betItem.classList.add('bet-history__item');
+
+            const betButton = document.createElement('button');
+            betButton.setAttribute('fair-id', bet.id); 
+
+            const betAmount = document.createElement('p');
+            betAmount.textContent = bet.amount;
+
+            betButton.appendChild(betAmount);
+            betItem.appendChild(betButton);
+            betHistoryList.appendChild(betItem);
+        });
+    })
+}
+
+generateBetHistory();
+
+
+const buttons = document.querySelectorAll('.bet-history__item');
+const modal = document.getElementById('fairModal');
+const modalData = document.getElementById('modal-data');
+const closeButton = document.querySelector('.close-button');
+
+buttons.forEach(button => {
+  button.addEventListener('click', function() {
+    const id = this.getAttribute('data-id');
+    modalData.textContent = historyBet[id];
+    modal.style.display = 'block'; 
+  });
+});
+
+closeButton.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+window.addEventListener('click', function(event) {
+  if (event.target == modal) {
+    modal.style.display = 'none';
+  }
+});

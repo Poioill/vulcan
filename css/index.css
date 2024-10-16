@@ -213,7 +213,7 @@ body{
 .bet-history{
     position: relative;
     display: flex;
-    max-height: 26px;
+    max-height: 30px;
     justify-content: space-between;
 }
 .bet-history__list{
@@ -251,7 +251,59 @@ body{
     font-size: 14px;
     font-weight: 500;
     width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+.bet-history__item:hover{
+    filter: brightness(0.6);
+    transition-duration: 0.3s;
+    cursor: pointer;
+}
+.bet-history__item button{
+    color: white;
+    font-size: 16px;
+}
+.bet-history__item button:hover{
+    cursor: pointer;
+}
+
+/* Модальное окно для истории ставок provably fair*/
+.fair-modal {
+    display: none;
+    position: fixed;
+    z-index: 12;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.4); 
+    animation: fadeIn 0.4s;
+}
+
+/* Анимация для плавного появления модального окна */
+@keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;} 
+}
+/* @keyframes scaleUp {
+  from {transform: scale(0.7);}
+  to {transform: scale(1);} 
+} */
+
+/* Стили для контента модального окна */
+.fair-modal__content {
+    background-color: #1D1E23;
+    margin: 8% auto;
+    padding: 20px;
+    width: 80%; 
+    max-width: 700px; 
+    border-radius: 10px;
+}
+
+
+
 .bet-history__btn__box{
     position: relative;
     z-index: 11;

@@ -304,53 +304,17 @@
             <div class="main__game-panel">
                 <div class="game-picture__body">
                     <div class="bet-history"> 
-                        <div class="bet-history__list bet-history__list__mask">
-                            <div class="bet-history__item">
-                                <p>3.45x</p>
+                        <!-- Модальное окно для provably fair -->
+                        <div id="fairModal" class="fair-modal">
+                            <div class="fair-modal__content">
+                              <div class="close-button">
+                                <img src="/image/svg/closeAllBet.svg" alt="">
                             </div>
-                            <div class="bet-history__item">
-                                <p>20.45x</p>
+                              <div id="modal-data"></div>
                             </div>
-                            <div class="bet-history__item">
-                                <p>7.45x</p>
-                            </div>
-                            <div class="bet-history__item">
-                                <p>3.45x</p>
-                            </div>
-                            <div class="bet-history__item">
-                                <p>20.45x</p>
-                            </div>
-                            <div class="bet-history__item">
-                                <p>3.45x</p>
-                            </div>
-                            <div class="bet-history__item">
-                                <p>20.45x</p>
-                            </div>
-                            <div class="bet-history__item">
-                                <p>7.45x</p>
-                            </div>
-                            <div class="bet-history__item">
-                                <p>3.45x</p>
-                            </div>
-                            <div class="bet-history__item">
-                                <p>20.45x</p>
-                            </div>
-                            <div class="bet-history__item">
-                                <p>3.45x</p>
-                            </div>
-                            <div class="bet-history__item">
-                                <p>20.45x</p>
-                            </div>
-                            <div class="bet-history__item">
-                                <p>7.45x</p>
-                            </div>
-                            <div class="bet-history__item">
-                                <p>3.45x</p>
-                            </div>
-                            <div class="bet-history__item">
-                                <p>20.45x</p>
-                            </div>    
                         </div>
+                        <!--  -->
+                        <div class="bet-history__list bet-history__list__mask" id="betHistoryList"></div>
                         <div class="bet-history__btn__box">
                             <button id="showAllHistory" class="bet-history__btn">
                                 <img src="/image/svg/timeSvg.svg" alt="">
@@ -361,65 +325,7 @@
                             <div class="bet-history__title">
                                 <p>История раундов</p>
                             </div>
-                            <div class="bet-history__list">
-                                <div class="bet-history__item">
-                                    <p>3.45x</p>
-                                </div>
-                                <div class="bet-history__item">
-                                    <p>20.45x</p>
-                                </div>
-                                <div class="bet-history__item">
-                                    <p>7.45x</p>
-                                </div>
-                                <div class="bet-history__item">
-                                    <p>3.45x</p>
-                                </div>
-                                <div class="bet-history__item">
-                                    <p>20.45x</p>
-                                </div>
-                                <div class="bet-history__item">
-                                    <p>3.45x</p>
-                                </div>
-                                <div class="bet-history__item">
-                                    <p>20.45x</p>
-                                </div>
-                                <div class="bet-history__item">
-                                    <p>7.45x</p>
-                                </div>
-                                <div class="bet-history__item">
-                                    <p>3.45x</p>
-                                </div>
-                                <div class="bet-history__item">
-                                    <p>20.45x</p>
-                                </div>
-                                <div class="bet-history__item">
-                                    <p>3.45x</p>
-                                </div>
-                                <div class="bet-history__item">
-                                    <p>20.45x</p>
-                                </div>
-                                <div class="bet-history__item">
-                                    <p>7.45x</p>
-                                </div>
-                                <div class="bet-history__item">
-                                    <p>3.45x</p>
-                                </div>
-                                <div class="bet-history__item">
-                                    <p>20.45x</p>
-                                </div>    
-                                <div class="bet-history__item">
-                                    <p>20.45x</p>
-                                </div>
-                                <div class="bet-history__item">
-                                    <p>7.45x</p>
-                                </div>
-                                <div class="bet-history__item">
-                                    <p>3.45x</p>
-                                </div>
-                                <div class="bet-history__item">
-                                    <p>20.45x</p>
-                                </div>    
-                            </div>
+                            <div class="bet-history__list" id="betHistoryList"></div>
                         </div>
                     </div> 
                     <div class="picture">
@@ -530,6 +436,7 @@
             </div>
         </main>
     </div>
-    <script src="/js/script.js"></script>
+    <script type="module" src="/js/script.js"></script>
+    <script type="module" src="/js/data.js"></script>
 </body>
 </html>
