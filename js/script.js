@@ -2,7 +2,7 @@ import historyBet from './data.js'
 
 // Переключение страниц левой панели 
 
-function showPage(pageIndex, button) {
+window.showPage = function showPage(pageIndex, button) {
     const pages = document.querySelectorAll('.page');
     const buttons = document.querySelectorAll('.tab-btn');
     const slider = document.querySelector('.slider');
@@ -28,8 +28,6 @@ function showPage(pageIndex, button) {
     slider.style.transform = `translateX(${sliderPosition}px)`;
     slider.style.width = `${buttonRect.width}px`;
 }
-
-
 
 // Открыть предыдущий раунд
 
@@ -84,19 +82,20 @@ soundButton.addEventListener('click', () => {
 
 // Ставки
 
-function betIncrease(value) {
-    let betAmount = Number(document.getElementById('betAmount').innerText); 
+window.betIncrease = function betIncrease(id, value) {
+    let betAmount = Number(document.getElementById(id).innerText); 
     betAmount += value;
     if (betAmount < 0) betAmount = 0;
-    document.getElementById('betAmount').innerText = betAmount;
+    document.getElementById(id).innerText = betAmount;
 }
 
 // Авто ставка-вывод
 // автовывод
+
 let isAutoBetEnabled = false; 
-function autoBetButton() {
+window.autoBetButton = function autoBetButton(id) {
     isAutoBetEnabled = !isAutoBetEnabled;
-    const button = document.getElementById('autoBetButton');
+    const button = document.getElementById(id);
     const img = button.querySelector('img');
     if (isAutoBetEnabled) {
         img.style.backgroundColor = "rgb(253, 173, 76, 0.9)"; 
@@ -107,9 +106,9 @@ function autoBetButton() {
 }
 
 let isAutoDrawEnabled = false; 
-function autoDrawButton() {
+window.autoDrawButton = function autoDrawButton(id) {
     isAutoDrawEnabled = !isAutoDrawEnabled;
-    const button = document.getElementById('autoDrawButton');
+    const button = document.getElementById(id);
     const img = button.querySelector('img');
     if (isAutoDrawEnabled) {
         img.style.backgroundColor = "rgb(253, 173, 76, 0.9)"; 
@@ -137,7 +136,7 @@ document.getElementById('showAllHistory').addEventListener('click', function () 
 
 // Управление ставками - добавть еще одно поле - убрать
 
-function toggleBlock() {
+window.toggleBlock = function toggleBlock() {
     const rulerBox1 = document.getElementById('rulerBox1');
     const rulerBox2 = document.getElementById('rulerBox2');
     const plusButton = document.getElementById('manageBetAdd');
@@ -156,33 +155,33 @@ function toggleBlock() {
 // Делать ставки
 
 // Находит элемент <p> внутри <button> и получает его содержимое
-function getBetValue(button) {
+window.getBetValue = function getBetValue(button) {
     const betText = button.querySelector('p').textContent;
     const betValue = parseInt(betText.replace(/\D/g, ''));
     return betValue;
 }
 
-function placeBet(value) {
-    var betClickStyle = document.getElementsByClassName('bet__click-box');
-    
-    const betBox = betClickStyle[0].getElementsByClassName('click-box');
+window.placeBet = function placeBet(id) {
+    var betClickStyle = document.getElementById(id);
+    console.log(betClickStyle)
+    const betBox = betClickStyle.getElementsByClassName('click-box');
 
     if (betBox[0].style.display == "block") {
         betBox[1].style.display = 'block';
         betBox[0].style.display = "none";
-        betClickStyle[0].style.background = "rgba(203, 42, 73, 0.70)";
-        betClickStyle[0].style.border = "2px solid #CB2A49";
+        betClickStyle.style.background = "rgba(203, 42, 73, 0.70)";
+        betClickStyle.style.border = "2px solid #CB2A49";
     } else {
         betBox[1].style.display = 'none';
         betBox[0].style.display = "block";
-        betClickStyle[0].style.border = "";
-        betClickStyle[0].style.background = "linear-gradient(99deg, #F26F37 0%, #EF4747 48.25%, #CB2A49 94.23%)";  
+        betClickStyle.style.border = "";
+        betClickStyle.style.background = "linear-gradient(99deg, #F26F37 0%, #EF4747 48.25%, #CB2A49 94.23%)";  
     }
 }
 
 // Получение массива данных о ставках из data.js, отображение в истории ставок
 
-function generateBetHistory() {
+window.generateBetHistory = function generateBetHistory() {
     const betHistoryList = document.getElementsByClassName('bet-history__list');
 
     Array.from(betHistoryList).forEach(betHistoryList => {
@@ -203,8 +202,6 @@ function generateBetHistory() {
     })
 }
 
-generateBetHistory();
-
 
 const buttons = document.querySelectorAll('.bet-history__item');
 const modal = document.getElementById('fairModal');
@@ -213,12 +210,11 @@ const closeButton = document.querySelector('.close-button');
 
 buttons.forEach(button => {
   button.addEventListener('click', function() {
-    const id = this.getAttribute('data-id');
-    modalData.textContent = historyBet[id];
-    modal.style.display = 'block'; 
+    // const id = this.getAttribute('data-id');
+    // modalData.textContent = historyBet[id];
+    modal.style.display = 'block';
   });
 });
-
 closeButton.addEventListener('click', () => {
   modal.style.display = 'none';
 });

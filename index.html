@@ -307,10 +307,93 @@
                         <!-- Модальное окно для provably fair -->
                         <div id="fairModal" class="fair-modal">
                             <div class="fair-modal__content">
-                              <div class="close-button">
-                                <img src="/image/svg/closeAllBet.svg" alt="">
-                            </div>
-                              <div id="modal-data"></div>
+                                <div class="fair-modal__close-button">
+                                    <div>
+                                        <p>Раунд <span>68900098</span></p>
+                                        <div class="bet-history__item">
+                                            <p>347.6x</p>
+                                        </div>
+                                        <p>10:55:39</p>
+                                    </div>
+                                    <div>
+                                        <img class="close-button" src="/image/svg/closeAllBet.svg" alt="">
+                                    </div>
+                                </div>
+                                <div>
+                                    <div>
+                                        <div class="sid__box">
+                                            <div class="sid-title">
+                                                <div>
+                                                    <img src="/image/svg/sidData.svg" alt="">  
+                                                </div>
+                                                <div>
+                                                    <p>Сид сервера:</p>
+                                                    <p>Сгенерировано на вашей стороне</p>
+                                                </div>
+                                            </div>
+                                            <div class="sid sid-data__info">
+                                                Ub484pOy0zBi3YSMDbTnfj0ibMxo1Wvk20Q1oWzu
+                                            </div>
+                                        </div>
+                                        <div class="sid__box">
+                                            <div class="sid-title">
+                                                <div>
+                                                    <img src="/image/svg/sidLaptop.svg" alt=""> 
+                                                </div>
+                                                <div>
+                                                    <p>Сид клиента:</p>
+                                                    <p>Сгенерировано на стороне игрока</p>
+                                                </div>
+                                            </div>
+                                            <div class="sid sid-client__info">
+                                                <p>Игрок #1: <img src="/image/img/player.png" alt=""><span>игрок1ла</span></p>
+                                                <p>Сид: <span>Ub484pOy0zBi3YSMDbTnfj0ibMxo1Wvk20Q1oWzu</span></p>
+                                            </div>
+                                            <div class="sid sid-client__info">
+                                                <p>Игрок #2: <img src="/image/img/player.png" alt=""><span>игрок2</span></p>
+                                                <p>Сид: <span>Ub484pOy0zBi3YSMDbTnfj0ibMxo1Wvk20Q1oWzu</span></p>
+                                            </div>
+                                            <div class="sid sid-client__info">
+                                                <p>Игрок #3: <img src="/image/img/player.png" alt=""><span>игрок3</span></p>
+                                                <p>Сид: <span>Ub484pOy0zBi3YSMDbTnfj0ibMxo1Wvk20Q1oWzu</span></p>
+                                            </div>
+                                        </div>
+                                        <div class="sid__box">
+                                            <div class="sid-title">
+                                                <div>
+                                                    <img src="/image/svg/sidServer.svg" alt="">
+                                                </div>
+                                                <div>
+                                                    <p>Объединенный хэш SHA512:</p>
+                                                    <p>Верхние сиды объединены и конвертировны в SHA512 хэш. Это результат раунда</p>
+                                                </div>
+                                            </div>
+                                            <div class="sid sid-server__info">
+                                                84df0828f81deb59c9d1e81c5cd9001e39717cb91b00c29d650aa932fc98170248065c0995c11245c35c3276c046b1f9322ce15c9cc89c1fd7d5bddd554039c5
+                                            </div>
+                                            <div class="sid-server__box">
+                                                <div>
+                                                    <p>Шестнадцатеричная система:</p>
+                                                    <div class="sid">
+                                                        Ub484pOy0zBi3YSMDbTnfj0ibMxo1Wvk20Q1oWzu
+                                                    </div>    
+                                                </div>
+                                                <div>
+                                                    <p>Десятичная система:</p>
+                                                    <div class="sid">
+                                                        12233453534534534
+                                                    </div>    
+                                                </div>
+                                                <div>
+                                                    <p>Результат:</p>
+                                                    <div class="sid">
+                                                        1
+                                                    </div>    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <!--  -->
@@ -337,13 +420,13 @@
                         <div class="control__btn-bet__body">
                             <div class="btn-bet__box">
                                 <div>
-                                    <button id="autoBetButton" onclick="autoBetButton()">
+                                    <button id="autoBetButton" onclick="autoBetButton('autoBetButton')">
                                         <img src="/image/svg/manageButton.svg" alt="">
                                     </button>
                                     <span>Автоставка</span>
                                 </div>
                                 <div>
-                                    <button id="autoDrawButton" onclick="autoDrawButton()">
+                                    <button id="autoDrawButton" onclick="autoDrawButton('autoDrawButton')">
                                         <img src="/image/svg/manageButton.svg" alt="">
                                     </button>
                                     <span>Автовывод</span>
@@ -355,25 +438,25 @@
                                 </div>
                                 <button id="manageBetAdd" onclick="toggleBlock()">
                                     <img src="/image/svg/plus.svg" alt="">
-                                </button>    
+                                </button>
                             </div>
                         </div>
                         <div class="control__bet__body">
                             <div class="bet__add-box">
                                 <div class="add-one">
-                                    <button onclick="betIncrease(-10)">-10</button>
+                                    <button onclick="betIncrease('betAmount', -10)">-10</button>
                                     <span id="betAmount">100</span>
-                                    <button onclick="betIncrease(+10)">+10</button>
+                                    <button onclick="betIncrease('betAmount', +10)">+10</button>
                                 </div>
                                 <div class="add-more">
-                                    <button onclick="betIncrease(+100)">+100</button>
-                                    <button onclick="betIncrease(+200)">+200</button>    
-                                    <button onclick="betIncrease(+300)">+300</button>
-                                    <button onclick="betIncrease(+500)">+500</button>   
+                                    <button onclick="betIncrease('betAmount', +100)">+100</button>
+                                    <button onclick="betIncrease('betAmount', +200)">+200</button>    
+                                    <button onclick="betIncrease('betAmount', +300)">+300</button>
+                                    <button onclick="betIncrease('betAmount', +500)">+500</button>   
                                 </div>
                             </div>
-                            <div onclick="placeBet(getBetValue(this))" class="bet__click-box" style="background: linear-gradient(99deg, #F26F37 0%, #EF4747 48.25%, #CB2A49 94.23%);">
-                                <button>
+                            <div class="bet__click-box">
+                                <button onclick="placeBet(id)" id="betClickBox" style="background: linear-gradient(99deg, #F26F37 0%, #EF4747 48.25%, #CB2A49 94.23%);">
                                     <div class="click-box" style="display: block;">
                                         <span>ставка</span>
                                         <p>100</p>
@@ -382,7 +465,6 @@
                                         <span>отмена</span>
                                     </div>
                                 </button>
-
                             </div>
                         </div>
                     </div>
@@ -390,13 +472,13 @@
                         <div class="control__btn-bet__body">
                             <div class="btn-bet__box">
                                 <div>
-                                    <button id="autoBetButton" onclick="autoBetButton()">
+                                    <button id="autoBetButton2" onclick="autoBetButton('autoBetButton2')">
                                         <img src="/image/svg/manageButton.svg" alt="">
                                     </button>
                                     <span>Автоставка</span>
                                 </div>
                                 <div>
-                                    <button id="autoDrawButton" onclick="autoDrawButton()">
+                                    <button id="autoDrawButton2" onclick="autoDrawButton('autoDrawButton2')">
                                         <img src="/image/svg/manageButton.svg" alt="">
                                     </button>
                                     <span>Автовывод</span>
@@ -414,20 +496,26 @@
                         <div class="control__bet__body">
                             <div class="bet__add-box">
                                 <div class="add-one">
-                                    <button onclick="betIncrease(-10)">-10</button>
-                                    <span id="betAmount">100</span>
-                                    <button onclick="betIncrease(+10)">+10</button>
+                                    <button onclick="betIncrease('betAmount2', -10)">-10</button>
+                                    <span id="betAmount2">100</span>
+                                    <button onclick="betIncrease('betAmount2', +10)">+10</button>
                                 </div>
                                 <div class="add-more">
-                                    <button onclick="betIncrease(+100)">+100</button>
-                                    <button onclick="betIncrease(+200)">+200</button>    
-                                    <button onclick="betIncrease(+300)">+300</button>
-                                    <button onclick="betIncrease(+500)">+500</button>   
+                                    <button onclick="betIncrease('betAmount2', +100)">+100</button>
+                                    <button onclick="betIncrease('betAmount2', +200)">+200</button>    
+                                    <button onclick="betIncrease('betAmount2', +300)">+300</button>
+                                    <button onclick="betIncrease('betAmount2', +500)">+500</button>   
                                 </div>
                             </div>
-                            <div class="bet__click-box">
-                                <button>
-                                    <span>ставка</span>
+                            <div  class="bet__click-box">
+                                <button onclick="placeBet(id)" id="betClickBox2" style="background: linear-gradient(99deg, #F26F37 0%, #EF4747 48.25%, #CB2A49 94.23%);">
+                                    <div class="click-box" style="display: block;">
+                                        <span>ставка</span>
+                                        <p>100</p>
+                                    </div>
+                                    <div class="click-box" style="display: none;">
+                                        <span>отмена</span>
+                                    </div>
                                 </button>
                             </div>
                         </div>
@@ -438,5 +526,6 @@
     </div>
     <script type="module" src="/js/script.js"></script>
     <script type="module" src="/js/data.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 </html>
